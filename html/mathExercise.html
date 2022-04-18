@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>MathExercise</title>
+</head>
+<body>
+    <div class="container">
+        <h1>MathExercise</h1>
+
+        <!-- 설정 관련 부문 Start -->
+        <div class="setting border mt-5">
+            <div class="setting-btn border">
+                <button class="btn btn-lg btn-info btn-block" type="button">설정</button>
+            </div>
+            <div class="setting-form d-none">
+                <form class="needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">First name</label>
+                            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">Last name</label>
+                            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom03">City</label>
+                            <input type="text" class="form-control" id="validationCustom03" required>
+                            <div class="invalid-feedback">
+                            Please provide a valid city.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom04">State</label>
+                            <select class="custom-select" id="validationCustom04" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>...</option>
+                            </select>
+                            <div class="invalid-feedback">
+                            Please select a valid state.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationCustom05">Zip</label>
+                            <input type="text" class="form-control" id="validationCustom05" required>
+                            <div class="invalid-feedback">
+                            Please provide a valid zip.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                            <label class="form-check-label" for="invalidCheck">
+                            Agree to terms and conditions
+                            </label>
+                            <div class="invalid-feedback">
+                            You must agree before submitting.
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </form>
+            </div>
+        </div>
+        <!-- 설정 관련 부문 End -->
+        <div class="mt-5 mb-5">
+
+        </div>
+        <!-- 문제 관련 부문 Start -->
+        <div class="exam" >
+            <form class="math-exam" novalidate>
+                <div class="form-row">
+                    <div class="col-sm-2 col-md-2 col-lg-2 mb-3 text-center">
+                        <input type="text" class="form-control form-control-lg" id="first_num" value="" required>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1 mb-3 text-center align-middle">
+                        <h1 class="operator">+</h1>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2 mb-3 text-center">
+                        <input type="text" class="form-control form-control-lg" id="second_num" value="" required>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1 mb-3 text-center align-middle">
+                        <h1>=</h1>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
+                        <input type="text" class="form-control form-control-lg" id="input_num" value="" required>
+                        <input type="hidden" class="form-control form-control-lg" id="answer_num" value="" required>
+                        <input type="hidden" class="form-control form-control-lg" id="answer_flag" value="N" required>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3 mb-3 text-center align-middle">
+                        <button class="btn btn-lg btn-primary btn-block" type="button" onclick="fn_confirm()">확인</button>
+                    </div>
+                </div>
+                <div class="form-row mt-5">
+                    <div class="col mb-3">
+                        <button class="btn btn-lg btn-success btn-block" type="button" onclick="fn_next_exam_setting()">다음문제</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+
+        <!-- 문제 관련 부문 End -->
+
+    </div>    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="../js/main.js" crossorigin="anonymous"></script>
+</body>
+</html>
