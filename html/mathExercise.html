@@ -16,9 +16,9 @@
         <!-- 설정 관련 부문 Start -->
         <div class="setting border mt-5">
             <div class="setting-btn border">
-                <button class="btn btn-lg btn-info btn-block" type="button">설정</button>
+                <button class="btn btn-lg btn-info btn-block" type="button" onclick="fn_setting_display();">설정</button>
             </div>
-            <div class="setting-form d-none">
+            <div class="setting-form" style="display:none">
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
@@ -62,18 +62,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                            Agree to terms and conditions
-                            </label>
-                            <div class="invalid-feedback">
-                            You must agree before submitting.
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Submit form</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" onclikc="">확인</button>
                 </form>
             </div>
         </div>

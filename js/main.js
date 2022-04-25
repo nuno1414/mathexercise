@@ -21,6 +21,7 @@ let secondNum = null;
 let inputNum = null;
 let answerNum = null;
 let answerFlag = "N"; 
+let settingDisplay = "none";
 
 $('document').ready(function() {
     fn_reset();
@@ -53,6 +54,13 @@ var fn_exam_setting = function() {
     $('#second_num').attr("disabled", true);
     $('#answer_num').attr("disabled", false);
 
+    // random 범위 지정 참고 사이트 - https://dasima.xyz/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-math-random-%EB%B2%94%EC%9C%84-%EC%9E%90%EB%A6%BF%EC%88%98/
+    // random 범위 지정 참고 함수
+    // function makeRandom(min, max){
+    //     var RandVal = Math.floor(Math.random()*(max-min+1)) + min;
+    //     return RandVal;
+    // }
+    
     // Returns a random integer from 1 to 10:
     // Math.floor(Math.random() * 10) + 1;
     firstNum = Math.floor(Math.random() * 10) + 1;
@@ -115,4 +123,15 @@ var fn_confirm = function() {
         $('#input_num').focus();
     }
 
+}
+
+// 설정 display 
+var fn_setting_display = function() {
+
+    if( settingDisplay == "block") {
+        settingDisplay = "none";
+    } else {
+        settingDisplay = "block";
+    }
+    $('.setting-form').css("display", settingDisplay);
 }
