@@ -16,14 +16,18 @@
 //변수 선언
 let operationType = "01"; //01:+, 02:-, 03:*, 04:/
 let mathExerciseType = "01"; //01: 답맞추기, 02: 뒷자리 숫자 맞추기, 03: 앞자리 숫자 맞추기
+                             // 앞자리수가 큰수, 뒷자리수가 큰수 등등도 있구나...
 let firstNum = null;
-let firstNumRang = 10;
+let firstNumRangFrom = 1;
+let firstNumRangTo = 10;
 let secondNum = null;
-let secondNumRang = 10;
+let secondNumRangFrom = 1;
+let secondNumRangTo = 10;
 let inputNum = null;
 let answerNum = null;
 let answerFlag = "N"; 
 let settingDisplay = "none";
+let examNum = 1;//문제횟수
 
 $('document').ready(function() {
 
@@ -39,9 +43,13 @@ var fn_reset = function() {
     $("#formulaType").val(mathExerciseType).prop("selected", true); //값이 01인 option 선택
     $("#formulaType option[value='"+mathExerciseType+"']").prop("disabled", true);
 
-    $('#first_num_rang').val(firstNumRang); // first_num_rang(from~to개념으로 가야 할까??)
+    $('#first_num_rang_from').val(firstNumRangFrom);
+    $('#first_num_rang_to').val(firstNumRangTo); 
 
-    $('#second_num_rang').val(secondNumRang); // second_num_rang(from~to개념으로 가야 할까??)
+    $('#second_num_rang_from').val(secondNumRangFrom); 
+    $('#second_num_rang_to').val(secondNumRangTo); 
+
+    $('#examCount').text(examNum + "개"); 
 
     // 문제 셋팅
     fn_exam_setting();
@@ -76,10 +84,10 @@ var fn_exam_setting = function() {
     
     // Returns a random integer from 1 to 10:
     // Math.floor(Math.random() * 10) + 1;
-    firstNum = Math.floor(Math.random() * firstNumRang) + 1;
+    firstNum = Math.floor(Math.random() * firstNumRangTo) + parseInt(firstNumRangFrom);
     $('#first_num').val(firstNum);
 
-    secondNum = Math.floor(Math.random() * secondNumRang) + 1;
+    secondNum = Math.floor(Math.random() * secondNumRangTo) + parseInt(secondNumRangFrom);
     $('#second_num').val(secondNum);
 
     answerNum = firstNum + secondNum;
@@ -104,6 +112,8 @@ var fn_next_exam_setting = function(){
             footer: ''
         })
     } else {
+        examNum += 1;
+        $('#examCount').text(examNum + "개");
         fn_exam_setting();
     }
 }
@@ -114,6 +124,7 @@ var fn_confirm = function() {
     inputNum = $('#input_num').val();
 
     answerNum = $('#answer_num').val();
+
     if ( inputNum == answerNum) {
         Swal.fire({
             icon: 'info',
@@ -124,6 +135,13 @@ var fn_confirm = function() {
 
         $('#answer_flag').val('Y');
 
+    } else if( inputNum == null || inputNum == "" ){
+        Swal.fire({
+            icon: 'warning',
+            title: '답을 입력해주세요!!!',
+            text: '답을 입력해주세요',
+            footer: ''
+        })
     } else {
         Swal.fire({
             icon: 'error',
@@ -168,10 +186,12 @@ var fn_save_setting = function() {
         cancelButtonText: '취소'
       }).then((result) => {
         if (result.value) {
-            operationType    = $("#operator option:selected").val();
-            mathExerciseType = $("#formulaType option:selected").val();
-            firstNumRang     = $("#first_num_rang").val();
-            secondNumRang    = $("#second_num_rang").val();
+            operationType     = $("#operator option:selected").val();
+            mathExerciseType  = $("#formulaType option:selected").val();
+            firstNumRangFrom  = $("#first_num_rang_from").val();
+            firstNumRangTo    = $("#first_num_rang_from").val();
+            secondNumRangFrom = $("#second_num_rang_from").val();
+            secondNumRangTo   = $("#second_num_rang_to").val();
 
             // 문제 셋팅
             fn_exam_setting();

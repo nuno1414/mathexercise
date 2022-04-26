@@ -49,18 +49,22 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="first_num_rang">앞자리 숫자 범위(1~지정숫자까지)</label>
-                            <input type="text" class="form-control" id="first_num_rang" value="" required>
-                            <div class="valid-feedback">
-                            Looks good!
-                            </div>
+                            <label for="first_num_rang">앞자리 숫자 범위(1~지정숫자까지) From</label>
+                            <input type="number" class="form-control" id="first_num_rang_from" value="" required>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="second_num_rang">뒷자리 숫자 범위(1~지정숫자까지)</label>
-                            <input type="text" class="form-control" id="second_num_rang" value="" required>
-                            <div class="valid-feedback">
-                            Looks good!
-                            </div>
+                            <label for="first_num_rang">앞자리 숫자 범위(1~지정숫자까지) To</label>
+                            <input type="number" class="form-control" id="first_num_rang_to" value="" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="second_num_rang">뒷자리 숫자 범위(1~지정숫자까지) From</label>
+                            <input type="number" class="form-control" id="second_num_rang_from" value="" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="second_num_rang">뒷자리 숫자 범위(1~지정숫자까지) To</label>
+                            <input type="number" class="form-control" id="second_num_rang_to" value="" required>
                         </div>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="button" onclick="fn_save_setting();">설정 저장</button>
@@ -68,27 +72,32 @@
             </div>
         </div>
         <!-- 설정 관련 부문 End -->
-        <div class="mt-5 mb-5">
+        <div class="mt-3 mb-3">
 
         </div>
         <!-- 문제 관련 부문 Start -->
         <div class="exam" >
             <form class="math-exam" novalidate>
+                <div class="form-row mt-3 mb-3">
+                    <div class="col-12 text-right">
+                        <h3 >문제 수 : <B id="examCount"></B></h3>
+                    </div>
+                </div>
                 <div class="form-row">
                     <div class="col-sm-2 col-md-2 col-lg-2 mb-3 text-center">
-                        <input type="text" class="form-control form-control-lg" id="first_num" value="" required>
+                        <input type="number" class="form-control form-control-lg" id="first_num" value="" required>
                     </div>
                     <div class="col-sm-1 col-md-1 col-lg-1 mb-3 text-center align-middle">
                         <h1 class="operator">+</h1>
                     </div>
                     <div class="col-sm-2 col-md-2 col-lg-2 mb-3 text-center">
-                        <input type="text" class="form-control form-control-lg" id="second_num" value="" required>
+                        <input type="number" class="form-control form-control-lg" id="second_num" value="" required>
                     </div>
                     <div class="col-sm-1 col-md-1 col-lg-1 mb-3 text-center align-middle">
                         <h1>=</h1>
                     </div>
                     <div class="col-sm-3 col-md-3 col-lg-3 mb-3">
-                        <input type="text" class="form-control form-control-lg" id="input_num" value="" required>
+                        <input type="number" class="form-control form-control-lg" id="input_num" value="" required>
                         <input type="hidden" class="form-control form-control-lg" id="answer_num" value="" required>
                         <input type="hidden" class="form-control form-control-lg" id="answer_flag" value="N" required>
                     </div>
