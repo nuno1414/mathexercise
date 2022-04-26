@@ -22,47 +22,48 @@
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustom01">연산자</label>
-                            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-                            <div class="valid-feedback">
-                            Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom02">형태</label>
-                            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-                            <div class="valid-feedback">
-                            Looks good!
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom03">City</label>
-                            <input type="text" class="form-control" id="validationCustom03" required>
-                            <div class="invalid-feedback">
-                            Please provide a valid city.
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom04">State</label>
-                            <select class="custom-select" id="validationCustom04" required>
-                            <option selected disabled value="">Choose...</option>
-                            <option>...</option>
+                            <label for="operator">연산자</label>
+                            <select class="custom-select" id="operator" required>
+                                <option value="">선택</option> <!-- selected disabled -->
+                                <option value="01">+</option>
+                                <option value="02">-</option>
+                                <option value="03">×</option>
+                                <option value="04">÷</option>
                             </select>
                             <div class="invalid-feedback">
                             Please select a valid state.
                             </div>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom05">Zip</label>
-                            <input type="text" class="form-control" id="validationCustom05" required>
+                        <div class="col-md-6 mb-3">
+                            <label for="formulaType">계산식 형태</label>
+                            <select class="custom-select" id="formulaType" required>
+                                <option value="">선택</option> <!-- selected disabled -->
+                                <option value="01">답 맞추기</option>
+                                <option value="02">뒷자리 숫자 맞추기</option>
+                                <option value="03">앞자리 숫자 맞추기</option>
+                            </select>
                             <div class="invalid-feedback">
-                            Please provide a valid zip.
+                            Please select a valid state.
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="button" onclikc="">확인</button>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="first_num_rang">앞자리 숫자 범위(1~지정숫자까지)</label>
+                            <input type="text" class="form-control" id="first_num_rang" value="" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="second_num_rang">뒷자리 숫자 범위(1~지정숫자까지)</label>
+                            <input type="text" class="form-control" id="second_num_rang" value="" required>
+                            <div class="valid-feedback">
+                            Looks good!
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="button" onclick="fn_save_setting();">설정 저장</button>
                 </form>
             </div>
         </div>

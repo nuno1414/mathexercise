@@ -14,22 +14,35 @@
 //   }) 
 
 //변수 선언
-let mathExerciseType = "1"; //1: 일반 덧셈
-let operationType = "1"; //1:+, 2:-, 3:*, 4:/
+let operationType = "01"; //01:+, 02:-, 03:*, 04:/
+let mathExerciseType = "01"; //01: 답맞추기, 02: 뒷자리 숫자 맞추기, 03: 앞자리 숫자 맞추기
 let firstNum = null;
+let firstNumRang = 10;
 let secondNum = null;
+let secondNumRang = 10;
 let inputNum = null;
 let answerNum = null;
 let answerFlag = "N"; 
 let settingDisplay = "none";
 
 $('document').ready(function() {
+
     fn_reset();
 });
 
 // 초기화
 var fn_reset = function() {
-    
+    // 설정값 셋팅 
+    $("#operator").val(operationType).prop("selected", true); //값이 01인 option 선택
+    $("#operator option[value='"+operationType+"']").prop("disabled", true);
+
+    $("#formulaType").val(mathExerciseType).prop("selected", true); //값이 01인 option 선택
+    $("#formulaType option[value='"+mathExerciseType+"']").prop("disabled", true);
+
+    $('#first_num_rang').val(firstNumRang); // first_num_rang(from~to개념으로 가야 할까??)
+
+    $('#second_num_rang').val(secondNumRang); // second_num_rang(from~to개념으로 가야 할까??)
+
     // 문제 셋팅
     fn_exam_setting();
 }
@@ -63,10 +76,10 @@ var fn_exam_setting = function() {
     
     // Returns a random integer from 1 to 10:
     // Math.floor(Math.random() * 10) + 1;
-    firstNum = Math.floor(Math.random() * 10) + 1;
+    firstNum = Math.floor(Math.random() * firstNumRang) + 1;
     $('#first_num').val(firstNum);
 
-    secondNum = Math.floor(Math.random() * 10) + 1;
+    secondNum = Math.floor(Math.random() * secondNumRang) + 1;
     $('#second_num').val(secondNum);
 
     answerNum = firstNum + secondNum;
@@ -134,4 +147,40 @@ var fn_setting_display = function() {
         settingDisplay = "block";
     }
     $('.setting-form').css("display", settingDisplay);
+}
+
+// 설정 값 셋팅
+var fn_save_setting = function() {
+
+    // alert($("#operator option:selected").val());
+    // alert($("#formulaType option:selected").val());
+    // alert($("#first_num_rang").val());
+    // alert($("#second_num_rang").val());
+
+    Swal.fire({
+        title: '설정 저장',
+        text: "입력한 설정으로 저장하시겠습니까??",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '확인',
+        cancelButtonText: '취소'
+      }).then((result) => {
+        if (result.value) {
+            operationType    = $("#operator option:selected").val();
+            mathExerciseType = $("#formulaType option:selected").val();
+            firstNumRang     = $("#first_num_rang").val();
+            secondNumRang    = $("#second_num_rang").val();
+
+            // 문제 셋팅
+            fn_exam_setting();
+
+            // 설정 display
+            fn_setting_display();
+        }
+      })
+
+    
+
 }
